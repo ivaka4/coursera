@@ -3,13 +3,12 @@ package com.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.serializers.LocalDateAdapter;
+import com.serializers.LocalDateTimeAdapter;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -22,7 +21,7 @@ public class BeansConfig {
     public Gson gsonConfig() {
         return new GsonBuilder()
                 .setPrettyPrinting()
-                .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+                .registerTypeAdapter(LocalDate.class, new LocalDateTimeAdapter())
                 .create();
     }
 

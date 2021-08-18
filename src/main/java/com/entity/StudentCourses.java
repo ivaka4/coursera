@@ -18,12 +18,12 @@ public class StudentCourses {
     @EmbeddedId
     private StudentCourseKey id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @MapsId("studentId")
-    @JoinColumn(name = "student_id")
+    @JoinColumn(name = "student_pin", columnDefinition = "nchar(10)")
     private Students student;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @MapsId("courseId")
     @JoinColumn(name = "course_id")
     private Courses course;

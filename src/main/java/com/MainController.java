@@ -4,6 +4,7 @@ package com;
 
 import com.service.CourseService;
 import com.service.ReportService;
+import com.service.StudentService;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ import java.util.Scanner;
 public class MainController implements CommandLineRunner {
     private CourseService courseService;
     private ReportService reportService;
+    private StudentService studentService;
 
 
     @Override
@@ -61,8 +63,9 @@ public class MainController implements CommandLineRunner {
         Scanner scanner = new Scanner(System.in);
         switch (option){
             case "1":{
-
-
+                System.out.println("Enter required minimum credits:");
+                int credits = Integer.parseInt(scanner.nextLine());
+                studentService.getStudentByRequiredCredits(credits);
             }
             case "2":{
 

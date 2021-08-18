@@ -19,7 +19,8 @@ import java.util.Set;
 public class Students{
 
     @Id
-    private Integer pin;
+    @Column(columnDefinition = "nchar(10)")
+    private String pin;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -30,7 +31,7 @@ public class Students{
     @Column(name = "time_created", nullable = false)
     private LocalDateTime timeCreated;
 
-    @OneToMany(mappedBy = "student")
+    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
     private Set<StudentCourses> sc;
 
 }
