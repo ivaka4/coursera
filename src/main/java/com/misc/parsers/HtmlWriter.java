@@ -11,17 +11,17 @@ import java.io.File;
 import java.io.FileWriter;
 
 @Component
-public class JsonWriter {
+public class HtmlWriter {
     Environment env;
 
     @Autowired
-    public JsonWriter(Environment env) {
+    public HtmlWriter(Environment env) {
         this.env = env;
     }
 
     @SneakyThrows
     public  void saveToFile(String jsonString, String fileName, String fileRoot) {
-        String filePath = env.getProperty(fileRoot) + fileName + ".json";
+        String filePath = fileRoot + "/" + fileName + ".html";
         File f = new File(filePath);
 
         if(!f.exists()){
