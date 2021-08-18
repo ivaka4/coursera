@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface CourseRepository extends JpaRepository<Courses, Integer> {
-    Optional<Courses> getCoursesByCredit(int credit);
+    Optional<Courses> getCoursesByCreditGreaterThan (int credit);
 }

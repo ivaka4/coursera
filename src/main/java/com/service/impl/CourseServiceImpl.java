@@ -13,7 +13,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public void minimumCredit(int credit) {
+    public void requiredCredit(int credit) {
 
     }
 }

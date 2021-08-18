@@ -2,5 +2,5 @@ package com.service;
 
 public interface CourseService {
 
-    void minimumCredit(int credit);
+    void requiredCredit(int credit);
 }

@@ -3,21 +3,25 @@ package com;
 
 
 import com.service.CourseService;
+import com.service.ReportService;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
+import org.yaml.snakeyaml.emitter.ScalarAnalysis;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.util.Scanner;
 
 
 @Controller
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class MainController implements CommandLineRunner {
     private CourseService courseService;
+    private ReportService reportService;
 
 
     @Override
@@ -54,10 +58,18 @@ public class MainController implements CommandLineRunner {
     }
 
     public void executeOption(String option){
+        Scanner scanner = new Scanner(System.in);
         switch (option){
             case "1":{
 
 
+            }
+            case "2":{
+
+            }
+            case "3": {
+                String path = scanner.nextLine();
+                this.reportService.report(path);
             }
             default: System.out.println("## U know that's invalid input right? ##");
 
